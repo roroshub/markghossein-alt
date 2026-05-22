@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useRef } from 'react'
+import { useReveal } from './useReveal'
 
 const steps = [
   { num: '01', title: 'Clarity Session', desc: "We map your goals, timeline, and financial picture before a single property is viewed or listed." },
@@ -10,22 +10,7 @@ const steps = [
 ]
 
 export function Process() {
-  const ref = useRef<HTMLElement>(null)
-
-  useEffect(() => {
-    const obs = new IntersectionObserver(
-      (entries) => entries.forEach((e) => {
-        if (e.isIntersecting) {
-          e.target.querySelectorAll<HTMLElement>('.rise').forEach((el, i) => {
-            setTimeout(() => el.classList.add('in'), i * 80)
-          })
-        }
-      }),
-      { threshold: 0.1 }
-    )
-    if (ref.current) obs.observe(ref.current)
-    return () => obs.disconnect()
-  }, [])
+  const ref = useReveal<HTMLElement>()
 
   return (
     <section id="process" ref={ref} className="bg-[#080808] py-24 md:py-36 overflow-hidden">

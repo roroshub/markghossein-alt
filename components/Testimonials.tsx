@@ -1,5 +1,6 @@
 'use client'
-import { useEffect, useRef, useState } from 'react'
+import { useState } from 'react'
+import { useReveal } from './useReveal'
 
 const testimonials = [
   {
@@ -23,23 +24,8 @@ const testimonials = [
 ]
 
 export function Testimonials() {
-  const ref = useRef<HTMLElement>(null)
+  const ref = useReveal<HTMLElement>()
   const [current, setCurrent] = useState(0)
-
-  useEffect(() => {
-    const obs = new IntersectionObserver(
-      (entries) => entries.forEach((e) => {
-        if (e.isIntersecting) {
-          e.target.querySelectorAll<HTMLElement>('.rise').forEach((el, i) => {
-            setTimeout(() => el.classList.add('in'), i * 100)
-          })
-        }
-      }),
-      { threshold: 0.1 }
-    )
-    if (ref.current) obs.observe(ref.current)
-    return () => obs.disconnect()
-  }, [])
 
   const t = testimonials[current]
 

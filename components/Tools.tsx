@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useRef } from 'react'
+import { useReveal } from './useReveal'
 
 const tools = [
   {
@@ -23,22 +23,7 @@ const tools = [
 ]
 
 export function Tools() {
-  const ref = useRef<HTMLElement>(null)
-
-  useEffect(() => {
-    const obs = new IntersectionObserver(
-      (entries) => entries.forEach((e) => {
-        if (e.isIntersecting) {
-          e.target.querySelectorAll<HTMLElement>('.rise').forEach((el, i) => {
-            setTimeout(() => el.classList.add('in'), i * 100)
-          })
-        }
-      }),
-      { threshold: 0.1 }
-    )
-    if (ref.current) obs.observe(ref.current)
-    return () => obs.disconnect()
-  }, [])
+  const ref = useReveal<HTMLElement>()
 
   return (
     <section id="tools" ref={ref} className="bg-[#0d0d0d] py-24 md:py-36">

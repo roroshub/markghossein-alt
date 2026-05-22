@@ -1,5 +1,6 @@
 'use client'
-import { useEffect, useRef, useState } from 'react'
+import { useState } from 'react'
+import { useReveal } from './useReveal'
 
 const services = [
   {
@@ -37,23 +38,8 @@ const services = [
 ]
 
 export function Services() {
-  const ref = useRef<HTMLElement>(null)
+  const ref = useReveal<HTMLElement>()
   const [active, setActive] = useState<number | null>(0)
-
-  useEffect(() => {
-    const obs = new IntersectionObserver(
-      (entries) => entries.forEach((e) => {
-        if (e.isIntersecting) {
-          e.target.querySelectorAll<HTMLElement>('.rise').forEach((el, i) => {
-            setTimeout(() => el.classList.add('in'), i * 80)
-          })
-        }
-      }),
-      { threshold: 0.1 }
-    )
-    if (ref.current) obs.observe(ref.current)
-    return () => obs.disconnect()
-  }, [])
 
   return (
     <section id="services" ref={ref} className="bg-[#080808] py-24 md:py-36">

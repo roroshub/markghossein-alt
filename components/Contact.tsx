@@ -1,5 +1,6 @@
 'use client'
-import { useEffect, useRef, useState } from 'react'
+import { useState } from 'react'
+import { useReveal } from './useReveal'
 
 const interests = [
   'Buying a Home',
@@ -11,24 +12,9 @@ const interests = [
 ]
 
 export function Contact() {
-  const ref = useRef<HTMLElement>(null)
+  const ref = useReveal<HTMLElement>()
   const [interest, setInterest] = useState<string | null>(null)
   const [sent, setSent] = useState(false)
-
-  useEffect(() => {
-    const obs = new IntersectionObserver(
-      (entries) => entries.forEach((e) => {
-        if (e.isIntersecting) {
-          e.target.querySelectorAll<HTMLElement>('.rise').forEach((el, i) => {
-            setTimeout(() => el.classList.add('in'), i * 80)
-          })
-        }
-      }),
-      { threshold: 0.1 }
-    )
-    if (ref.current) obs.observe(ref.current)
-    return () => obs.disconnect()
-  }, [])
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault()

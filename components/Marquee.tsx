@@ -7,19 +7,17 @@ const items = [
   'Smooth Move System™',
   'Neighbourhood Alerts',
   'Strategic Pricing',
-  'Ottawa Real Estate',
 ]
 
 export function Marquee() {
-  const doubled = [...items, ...items]
-
+  const all = [...items, ...items, ...items]
   return (
-    <div className="bg-[#1b3d2e] py-4 overflow-hidden">
-      <div className="flex whitespace-nowrap marquee-track">
-        {doubled.map((item, i) => (
-          <span key={i} className="flex items-center">
-            <span className="text-white/80 text-sm tracking-widest uppercase px-6">{item}</span>
-            <span className="text-[#95d5b2] opacity-60">◆</span>
+    <div className="border-y border-[#2a2a2a] py-3 overflow-hidden bg-[#111]">
+      <div className="flex whitespace-nowrap marquee-run">
+        {all.map((item, i) => (
+          <span key={i} className="flex items-center gap-4 px-4">
+            <span className="font-display text-xs font-600 tracking-[0.2em] uppercase text-[#555]">{item}</span>
+            <span className="text-[#ff4423] text-xs">◆</span>
           </span>
         ))}
       </div>

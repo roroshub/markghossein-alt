@@ -2,97 +2,99 @@
 import { useEffect, useRef } from 'react'
 
 const steps = [
-  {
-    num: '01',
-    title: 'Clarity Session',
-    desc: 'We map your goals, timeline, and financial picture before a single property is viewed or listed.',
-  },
-  {
-    num: '02',
-    title: 'Strategic Pricing',
-    desc: 'Your current home is priced to attract maximum buyers — not based on emotion, but on data.',
-  },
-  {
-    num: '03',
-    title: 'Staging & Launch',
-    desc: 'Professional presentation to make buyers fall in love before they walk through the door.',
-  },
-  {
-    num: '04',
-    title: 'Timeline Sync',
-    desc: 'We coordinate buy and sell timelines so you never pay double mortgages or live in limbo.',
-  },
-  {
-    num: '05',
-    title: 'Dream Home Secured',
-    desc: 'With proceeds in hand and a clear plan, we move decisively on your next chapter.',
-  },
+  { num: '01', title: 'Clarity Session', desc: "We map your goals, timeline, and financial picture before a single property is viewed or listed." },
+  { num: '02', title: 'Strategic Pricing', desc: "Your current home is priced to attract maximum buyers — not based on emotion, but on data." },
+  { num: '03', title: 'Staging & Launch', desc: "Professional presentation to make buyers fall in love before they walk through the door." },
+  { num: '04', title: 'Timeline Sync', desc: "We coordinate buy and sell timelines so you never pay double mortgages or live in limbo." },
+  { num: '05', title: 'Dream Home', desc: "With proceeds in hand and a clear plan, we move decisively on your next chapter." },
 ]
 
 export function Process() {
   const ref = useRef<HTMLElement>(null)
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
+    const obs = new IntersectionObserver(
       (entries) => entries.forEach((e) => {
         if (e.isIntersecting) {
-          e.target.querySelectorAll<HTMLElement>('.reveal').forEach((el, i) => {
-            setTimeout(() => el.classList.add('visible'), i * 100)
+          e.target.querySelectorAll<HTMLElement>('.rise').forEach((el, i) => {
+            setTimeout(() => el.classList.add('in'), i * 80)
           })
         }
       }),
       { threshold: 0.1 }
     )
-    if (ref.current) observer.observe(ref.current)
-    return () => observer.disconnect()
+    if (ref.current) obs.observe(ref.current)
+    return () => obs.disconnect()
   }, [])
 
   return (
-    <section id="process" ref={ref} className="bg-[#1b3d2e] py-24 md:py-36 overflow-hidden">
+    <section id="process" ref={ref} className="bg-[#080808] py-24 md:py-36 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 md:px-10">
-        <div className="grid lg:grid-cols-2 gap-16 xl:gap-24">
-          {/* Left */}
-          <div className="lg:sticky lg:top-24 lg:self-start">
-            <div className="reveal flex items-center gap-4 mb-8">
-              <span className="font-serif text-[#245040] text-8xl md:text-9xl leading-none select-none">04</span>
-              <div>
-                <div className="w-8 h-px bg-[#95d5b2] mb-2" />
-                <span className="text-[#95d5b2] text-xs font-semibold tracking-[0.2em] uppercase">Signature Program</span>
-              </div>
-            </div>
-            <h2 className="reveal font-serif text-4xl md:text-5xl text-white leading-[1.1] mb-6">
-              The Smooth Move<br />
-              <em className="text-[#95d5b2]">System™</em>
-            </h2>
-            <p className="reveal text-white/60 text-lg leading-relaxed mb-8">
-              Selling your current home and upsizing to your dream home at the same time is one of the most stressful things you can do in real estate — unless you have a proven framework.
-            </p>
-            <a href="#contact" className="reveal inline-flex items-center gap-3 border border-white/30 text-white px-8 py-4 text-sm font-semibold hover:bg-white hover:text-[#1b3d2e] transition-colors duration-300">
-              Get the Free Guide
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </a>
-          </div>
+        <div className="rise flex items-center gap-3 mb-16">
+          <span className="text-[#ff4423] font-display font-700 text-xs tracking-[0.3em] uppercase">04 — Smooth Move System™</span>
+          <div className="flex-1 h-px bg-[#2a2a2a]" />
+        </div>
 
-          {/* Right — steps */}
-          <div className="space-y-0">
+        {/* Header row */}
+        <div className="rise grid md:grid-cols-[1fr_auto] gap-8 items-end mb-16">
+          <h2 className="font-display font-800 text-white leading-[1] tracking-tight"
+            style={{ fontSize: 'clamp(2.5rem, 6vw, 6rem)' }}
+          >
+            The Five-Step<br /><span className="text-[#ff4423]">Framework.</span>
+          </h2>
+          <a href="#contact" className="inline-flex items-center gap-3 bg-[#ff4423] text-white font-display font-700 text-sm tracking-wide px-6 py-3 hover:bg-[#cc3519] transition-colors whitespace-nowrap">
+            Get Free Guide
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+              <path d="M7 17L17 7M17 7H7M17 7v10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </a>
+        </div>
+
+        {/* Horizontal scrolling timeline */}
+        <div className="rise h-scroll -mx-6 md:-mx-10 px-6 md:px-10">
+          <div className="flex gap-px w-max min-w-full">
             {steps.map((step, i) => (
               <div
                 key={step.num}
-                className="reveal border-b border-white/10 last:border-0 group"
+                className="group relative flex-shrink-0 w-72 md:w-80 border border-[#2a2a2a] bg-[#111] p-8 hover:bg-[#ff4423] transition-colors duration-500 cursor-default"
+                style={{ minHeight: '280px' }}
               >
-                <div className="flex items-start gap-6 py-8 hover:pl-2 transition-all duration-300">
-                  <span className="font-serif text-[#245040] text-4xl leading-none flex-shrink-0 group-hover:text-[#95d5b2] transition-colors">
-                    {step.num}
-                  </span>
-                  <div>
-                    <h4 className="text-white font-semibold text-lg mb-2">{step.title}</h4>
-                    <p className="text-white/55 text-sm leading-relaxed">{step.desc}</p>
+                {/* Step number watermark */}
+                <div
+                  className="absolute right-4 bottom-4 font-display font-800 text-[#1a1a1a] group-hover:text-[#cc3519] leading-none pointer-events-none transition-colors"
+                  style={{ fontSize: '5rem' }}
+                >
+                  {step.num}
+                </div>
+
+                <div className="relative z-10">
+                  {/* Connector line */}
+                  {i < steps.length - 1 && (
+                    <div className="absolute -right-px top-8 w-px h-6 bg-[#ff4423]" />
+                  )}
+
+                  <div className="w-8 h-8 border border-[#2a2a2a] group-hover:border-white/30 flex items-center justify-center mb-6 transition-colors">
+                    <span className="text-[#ff4423] group-hover:text-white font-display font-700 text-xs transition-colors">
+                      {step.num}
+                    </span>
                   </div>
+                  <h4 className="font-display font-700 text-white group-hover:text-white text-xl mb-3 transition-colors">
+                    {step.title}
+                  </h4>
+                  <p className="text-[#555] group-hover:text-white/70 text-sm leading-relaxed transition-colors">
+                    {step.desc}
+                  </p>
                 </div>
               </div>
             ))}
+
+            {/* End cap */}
+            <div className="flex-shrink-0 w-72 md:w-80 border border-[#2a2a2a] bg-[#0d0d0d] p-8 flex flex-col justify-end" style={{ minHeight: '280px' }}>
+              <p className="font-display font-800 text-[#ff4423] text-lg mb-3">Ready to start?</p>
+              <a href="#contact" className="text-[#444] text-sm hover:text-white transition-colors underline-hover">
+                Book your Clarity Session →
+              </a>
+            </div>
           </div>
         </div>
       </div>

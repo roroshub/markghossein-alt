@@ -1,104 +1,99 @@
 'use client'
-import { useEffect, useState } from 'react'
+import { useState, useEffect } from 'react'
 
-const links = [
+const navItems = [
   { href: '#about', label: 'About' },
   { href: '#services', label: 'Services' },
-  { href: '#listings', label: 'Listings' },
+  { href: '#listings', label: 'Work' },
   { href: '#process', label: 'Process' },
-  { href: '#testimonials', label: 'Reviews' },
+  { href: '#contact', label: 'Contact' },
 ]
 
 export function Navbar() {
-  const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 48)
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
+    const fn = () => setScrolled(window.scrollY > 60)
+    window.addEventListener('scroll', fn, { passive: true })
+    return () => window.removeEventListener('scroll', fn)
   }, [])
 
   return (
     <>
-      <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled
-            ? 'bg-[#f7f4ef]/95 backdrop-blur-sm border-b border-[#ddd4c5]'
-            : 'bg-transparent'
-        }`}
-      >
-        <div className="max-w-7xl mx-auto px-6 md:px-10 flex items-center justify-between h-16 md:h-20">
-          {/* Logo */}
-          <a href="#hero" className="flex items-center gap-3 group">
-            <div className="w-9 h-9 bg-[#1b3d2e] flex items-center justify-center">
-              <span className="text-white font-serif text-sm tracking-wide">MG</span>
-            </div>
-            <div className="leading-tight">
-              <div className="text-[#1e1e1e] font-semibold text-sm tracking-wide">Mark Ghossein</div>
-              <div className="text-[#9c8b7a] text-xs tracking-widest uppercase">Real Estate Advisors</div>
-            </div>
-          </a>
-
-          {/* Desktop links */}
-          <ul className="hidden md:flex items-center gap-8">
-            {links.map((l) => (
-              <li key={l.href}>
-                <a
-                  href={l.href}
-                  className="text-[#5a5a5a] hover:text-[#1b3d2e] text-sm tracking-wide transition-colors duration-200"
-                >
-                  {l.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-
-          {/* CTA */}
-          <a
-            href="#contact"
-            className="hidden md:inline-flex items-center gap-2 bg-[#1b3d2e] text-white text-sm tracking-wide px-5 py-2.5 hover:bg-[#245040] transition-colors duration-200"
-          >
-            Let's Talk
-          </a>
-
-          {/* Burger */}
-          <button
-            aria-label="Toggle menu"
-            onClick={() => setOpen(!open)}
-            className="md:hidden w-8 h-8 flex flex-col justify-center gap-1.5"
-          >
-            <span className={`block h-px bg-[#1e1e1e] transition-all duration-300 ${open ? 'rotate-45 translate-y-2' : ''}`} />
-            <span className={`block h-px bg-[#1e1e1e] transition-all duration-300 ${open ? 'opacity-0' : ''}`} />
-            <span className={`block h-px bg-[#1e1e1e] transition-all duration-300 ${open ? '-rotate-45 -translate-y-2' : ''}`} />
-          </button>
-        </div>
+      {/* Minimal top bar */}
+      <nav className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-10 h-14 transition-all duration-300 ${scrolled ? 'bg-[#080808]/90 backdrop-blur border-b border-[#2a2a2a]' : ''}`}>
+        <a href="#hero" className="font-display font-800 text-sm tracking-[0.15em] uppercase text-white">
+          MG<span className="text-[#ff4423]">.</span>
+        </a>
+        <button
+          aria-label="Menu"
+          onClick={() => setOpen(true)}
+          className="flex items-center gap-2 text-[#888] hover:text-white transition-colors text-sm tracking-widest uppercase font-display"
+        >
+          Menu
+          <span className="flex flex-col gap-1">
+            <span className="block w-4 h-px bg-current" />
+            <span className="block w-3 h-px bg-current" />
+          </span>
+        </button>
       </nav>
 
-      {/* Mobile menu */}
+      {/* Full-screen overlay menu */}
       <div
-        className={`fixed inset-0 z-40 bg-[#f7f4ef] flex flex-col items-center justify-center transition-all duration-500 md:hidden ${
+        className={`fixed inset-0 z-[60] bg-[#080808] flex flex-col transition-all duration-700 ${
           open ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
       >
-        {links.map((l, i) => (
-          <a
-            key={l.href}
-            href={l.href}
-            onClick={() => setOpen(false)}
-            className="font-serif text-3xl text-[#1e1e1e] py-4 hover:text-[#1b3d2e] transition-colors"
-            style={{ animationDelay: `${i * 60}ms` }}
-          >
-            {l.label}
+        {/* Close */}
+        <div className="flex items-center justify-between px-6 md:px-10 h-14 border-b border-[#2a2a2a]">
+          <a href="#hero" onClick={() => setOpen(false)} className="font-display font-800 text-sm tracking-[0.15em] uppercase">
+            MG<span className="text-[#ff4423]">.</span>
           </a>
-        ))}
-        <a
-          href="#contact"
-          onClick={() => setOpen(false)}
-          className="mt-6 bg-[#1b3d2e] text-white px-8 py-3 font-medium tracking-wide"
-        >
-          Let's Talk
-        </a>
+          <button
+            onClick={() => setOpen(false)}
+            className="text-[#888] hover:text-white transition-colors text-sm tracking-widest uppercase font-display flex items-center gap-2"
+          >
+            Close
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <path d="M1 1l12 12M13 1L1 13" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/>
+            </svg>
+          </button>
+        </div>
+
+        {/* Links */}
+        <div className="flex-1 flex flex-col justify-center px-6 md:px-16">
+          {navItems.map((item, i) => (
+            <a
+              key={item.href}
+              href={item.href}
+              onClick={() => setOpen(false)}
+              className="group flex items-center justify-between border-b border-[#1a1a1a] py-6 md:py-8 overflow-hidden"
+              style={{ transitionDelay: `${i * 60}ms` }}
+            >
+              <span className="font-display font-800 text-4xl md:text-6xl lg:text-7xl text-white group-hover:text-[#ff4423] transition-colors duration-300 leading-none">
+                {item.label}
+              </span>
+              <svg
+                className="text-[#333] group-hover:text-[#ff4423] transition-colors duration-300"
+                width="32" height="32" viewBox="0 0 24 24" fill="none"
+              >
+                <path d="M7 17L17 7M17 7H7M17 7v10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </a>
+          ))}
+        </div>
+
+        {/* Footer strip */}
+        <div className="px-6 md:px-16 pb-8 flex items-center gap-6 text-[#444] text-xs tracking-wider uppercase">
+          <span>Century 21</span>
+          <span className="w-4 h-px bg-[#333]" />
+          <span>Ottawa, Ontario</span>
+          <span className="w-4 h-px bg-[#333]" />
+          <a href="mailto:mark.ghossein@c21.ca" className="hover:text-white transition-colors">
+            mark.ghossein@c21.ca
+          </a>
+        </div>
       </div>
     </>
   )

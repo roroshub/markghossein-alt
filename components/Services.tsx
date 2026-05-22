@@ -1,135 +1,141 @@
 'use client'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 const services = [
   {
     num: '01',
     title: 'Buyer Representation',
-    desc: 'I guide you through every step — from pre-approval to closing day — so you can buy with confidence, clarity, and zero regrets.',
+    sub: 'From search to keys in hand.',
+    desc: 'I guide you through every step — from pre-approval to closing day — so you can buy with confidence, clarity, and zero regrets. No rushed decisions, no surprises.',
     items: ['Personalized property search', 'Offer strategy & negotiation', 'Inspection coordination', 'Closing support'],
-    cta: 'Start your search',
-    href: '#contact',
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
-        <path d="M4 28V14L16 4l12 10v14H20v-8h-8v8H4z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/>
-      </svg>
-    ),
+    cta: '#contact',
   },
   {
     num: '02',
     title: 'Seller Representation',
-    desc: 'Your property deserves top dollar — and a strategic plan to get it. Expert staging, data-backed pricing, and maximum market exposure.',
+    sub: 'Maximum value, minimum stress.',
+    desc: "Your property deserves top dollar and a strategic plan to get it. I bring expert staging guidance, data-backed pricing, and aggressive market exposure to every listing.",
     items: ['Professional staging consultation', 'Targeted marketing campaign', 'Strategic pricing analysis', 'Offer review & negotiation'],
-    cta: 'List your home',
-    href: '#contact',
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
-        <path d="M6 26l4-12 6 4 6-8 4 16H6z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/>
-        <circle cx="24" cy="8" r="3" stroke="currentColor" strokeWidth="1.5"/>
-      </svg>
-    ),
+    cta: '#contact',
   },
   {
     num: '03',
     title: 'Upsizing Consultation',
-    desc: 'Selling and buying simultaneously is complex. My Smooth Move System™ ensures your transition is seamless, stress-free, and financially optimized.',
+    sub: 'Sell high. Buy smart. Move once.',
+    desc: "Selling and buying simultaneously is complex. My Smooth Move System™ ensures your transition is seamless, stress-free, and financially optimized so nothing falls through the cracks.",
     items: ['Timeline synchronization', 'Budget planning beyond pre-approval', 'Bridge financing guidance', 'Dual negotiation strategy'],
-    cta: 'Learn the system',
-    href: '#process',
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
-        <path d="M8 24V12l4-4h8l4 4v12" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/>
-        <path d="M12 24v-6h8v6" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/>
-        <path d="M4 24h24" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-      </svg>
-    ),
+    cta: '#process',
   },
   {
     num: '04',
     title: 'Investment Strategy',
-    desc: 'Real estate is one of the most powerful wealth-building tools available. I help investors identify opportunities, analyze returns, and grow portfolios.',
+    sub: 'Build a portfolio that works for you.',
+    desc: "Real estate is one of the most powerful wealth-building tools available. I help investors identify opportunities, analyze returns, and plan multi-property strategies for long-term equity.",
     items: ['ROI & cap rate analysis', 'Market opportunity spotting', 'Multi-property planning', 'Long-term equity roadmap'],
-    cta: 'Build your portfolio',
-    href: '#contact',
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
-        <circle cx="16" cy="14" r="6" stroke="currentColor" strokeWidth="1.5"/>
-        <path d="M6 28c0-5.523 4.477-10 10-10s10 4.477 10 10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-      </svg>
-    ),
+    cta: '#contact',
   },
 ]
 
 export function Services() {
   const ref = useRef<HTMLElement>(null)
+  const [active, setActive] = useState<number | null>(0)
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
+    const obs = new IntersectionObserver(
       (entries) => entries.forEach((e) => {
         if (e.isIntersecting) {
-          e.target.querySelectorAll<HTMLElement>('.reveal').forEach((el, i) => {
-            setTimeout(() => el.classList.add('visible'), i * 100)
+          e.target.querySelectorAll<HTMLElement>('.rise').forEach((el, i) => {
+            setTimeout(() => el.classList.add('in'), i * 80)
           })
         }
       }),
       { threshold: 0.1 }
     )
-    if (ref.current) observer.observe(ref.current)
-    return () => observer.disconnect()
+    if (ref.current) obs.observe(ref.current)
+    return () => obs.disconnect()
   }, [])
 
   return (
-    <section id="services" ref={ref} className="bg-[#f7f4ef] py-24 md:py-36">
+    <section id="services" ref={ref} className="bg-[#080808] py-24 md:py-36">
       <div className="max-w-7xl mx-auto px-6 md:px-10">
-        {/* Header */}
-        <div className="reveal flex items-center gap-4 mb-5">
-          <span className="font-serif text-[#ddd4c5] text-8xl md:text-9xl leading-none select-none">02</span>
-          <div>
-            <div className="w-8 h-px bg-[#1b3d2e] mb-2" />
-            <span className="text-[#1b3d2e] text-xs font-semibold tracking-[0.2em] uppercase">What I Offer</span>
-          </div>
+        <div className="rise flex items-center gap-3 mb-16">
+          <span className="text-[#ff4423] font-display font-700 text-xs tracking-[0.3em] uppercase">02 — Services</span>
+          <div className="flex-1 h-px bg-[#2a2a2a]" />
         </div>
-        <h2 className="reveal font-serif text-4xl md:text-5xl text-[#141414] leading-[1.1] mb-16 max-w-xl">
-          Full-Service Real Estate,<br /><em className="text-[#1b3d2e]">Done Right.</em>
-        </h2>
 
-        {/* Grid */}
-        <div className="grid md:grid-cols-2 gap-px bg-[#ddd4c5]">
-          {services.map((s) => (
-            <div key={s.num} className="reveal bg-[#fdfcfa] p-8 xl:p-10 group hover:bg-[#1b3d2e] transition-colors duration-500 flex flex-col">
-              <div className="flex items-start justify-between mb-8">
-                <span className="font-serif text-5xl text-[#ede7dc] group-hover:text-white/20 transition-colors leading-none select-none">
-                  {s.num}
-                </span>
-                <span className="text-[#1b3d2e] group-hover:text-[#95d5b2] transition-colors mt-1">
-                  {s.icon}
-                </span>
+        <div className="rise flex items-end justify-between mb-12 gap-6">
+          <h2 className="font-display font-800 text-white leading-[1] tracking-tight"
+            style={{ fontSize: 'clamp(2.5rem, 6vw, 6rem)' }}
+          >
+            What I<br /><span className="text-[#ff4423]">Offer.</span>
+          </h2>
+          <p className="text-[#555] text-sm max-w-xs leading-relaxed hidden md:block">
+            Tap each service to explore what's included.
+          </p>
+        </div>
+
+        {/* Accordion */}
+        <div className="border-t border-[#2a2a2a]">
+          {services.map((s, i) => {
+            const isOpen = active === i
+            return (
+              <div key={s.num} className="rise border-b border-[#2a2a2a]">
+                <button
+                  className="w-full text-left py-6 md:py-8 flex items-center justify-between gap-6 group"
+                  onClick={() => setActive(isOpen ? null : i)}
+                >
+                  <div className="flex items-center gap-5 md:gap-10 min-w-0">
+                    <span className="font-display font-700 text-[#333] text-sm tracking-widest w-8 flex-shrink-0">
+                      {s.num}
+                    </span>
+                    <div className="min-w-0">
+                      <span className={`font-display font-800 text-white leading-none block transition-colors duration-300 ${isOpen ? 'text-[#ff4423]' : 'group-hover:text-[#ff4423]'}`}
+                        style={{ fontSize: 'clamp(1.25rem, 3vw, 2.25rem)' }}
+                      >
+                        {s.title}
+                      </span>
+                      <span className="text-[#444] text-xs tracking-wider uppercase mt-1 hidden md:block">{s.sub}</span>
+                    </div>
+                  </div>
+                  <div className={`w-8 h-8 border flex-shrink-0 flex items-center justify-center transition-all duration-300 ${isOpen ? 'border-[#ff4423] bg-[#ff4423] rotate-45' : 'border-[#333] group-hover:border-[#ff4423]'}`}>
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                      <path d="M6 2v8M2 6h8" stroke={isOpen ? 'white' : '#888'} strokeWidth="1.5" strokeLinecap="round"/>
+                    </svg>
+                  </div>
+                </button>
+
+                {/* Expandable body */}
+                <div className={`accordion-body ${isOpen ? 'open' : ''}`}>
+                  <div className="accordion-inner">
+                    <div className="pl-0 md:pl-[calc(2rem+40px)] pb-8 grid md:grid-cols-[2fr_1fr] gap-8">
+                      <div>
+                        <p className="text-[#777] text-base leading-relaxed mb-6">{s.desc}</p>
+                        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                          {s.items.map((item) => (
+                            <li key={item} className="flex items-center gap-2 text-sm text-[#666]">
+                              <span className="w-1 h-1 bg-[#ff4423] rounded-full flex-shrink-0" />
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      <div className="flex md:justify-end items-start">
+                        <a
+                          href={s.cta}
+                          className="inline-flex items-center gap-2 border border-[#ff4423] text-[#ff4423] font-display font-700 text-sm tracking-wide px-6 py-3 hover:bg-[#ff4423] hover:text-white transition-colors duration-200"
+                        >
+                          Get Started
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                            <path d="M7 17L17 7M17 7H7M17 7v10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                          </svg>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <h3 className="font-serif text-2xl text-[#141414] group-hover:text-white mb-4 transition-colors">
-                {s.title}
-              </h3>
-              <p className="text-[#5a5a5a] group-hover:text-white/70 text-sm leading-relaxed mb-6 transition-colors">
-                {s.desc}
-              </p>
-              <ul className="space-y-2 mb-8 flex-1">
-                {s.items.map((item) => (
-                  <li key={item} className="flex items-center gap-2 text-sm text-[#9c8b7a] group-hover:text-white/60 transition-colors">
-                    <span className="w-1 h-1 rounded-full bg-[#1b3d2e] group-hover:bg-[#95d5b2] transition-colors flex-shrink-0" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <a
-                href={s.href}
-                className="inline-flex items-center gap-2 text-sm font-semibold text-[#1b3d2e] group-hover:text-[#95d5b2] transition-colors"
-              >
-                {s.cta}
-                <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-                  <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </a>
-            </div>
-          ))}
+            )
+          })}
         </div>
       </div>
     </section>

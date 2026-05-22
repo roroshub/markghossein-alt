@@ -1,97 +1,124 @@
 'use client'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 const testimonials = [
   {
     quote: "Mark didn't just find us a house — he built us a strategy. We sold $80K over asking and found our dream home within the same month. The Smooth Move System is no joke.",
     name: 'Sarah & Raj K.',
-    detail: 'Upsized from Brampton to Oakville',
+    detail: 'Upsized · Ottawa to Oakville',
     initials: 'SR',
   },
   {
     quote: "As first-time buyers, we were terrified. Mark walked us through everything, never made us feel rushed, and negotiated $45,000 off the asking price. He's the real deal.",
     name: 'James & Lauren T.',
-    detail: 'First-time buyers, Mississauga',
+    detail: 'First-time buyers · Mississauga',
     initials: 'JL',
   },
   {
     quote: "I've worked with three agents over the years. Mark is in a completely different league. His market knowledge and no-nonsense approach got my condo sold in 4 days.",
     name: 'David M.',
-    detail: 'Sold in Burlington',
+    detail: 'Sold · Burlington',
     initials: 'DM',
   },
 ]
 
 export function Testimonials() {
   const ref = useRef<HTMLElement>(null)
+  const [current, setCurrent] = useState(0)
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
+    const obs = new IntersectionObserver(
       (entries) => entries.forEach((e) => {
         if (e.isIntersecting) {
-          e.target.querySelectorAll<HTMLElement>('.reveal').forEach((el, i) => {
-            setTimeout(() => el.classList.add('visible'), i * 100)
+          e.target.querySelectorAll<HTMLElement>('.rise').forEach((el, i) => {
+            setTimeout(() => el.classList.add('in'), i * 100)
           })
         }
       }),
       { threshold: 0.1 }
     )
-    if (ref.current) observer.observe(ref.current)
-    return () => observer.disconnect()
+    if (ref.current) obs.observe(ref.current)
+    return () => obs.disconnect()
   }, [])
 
-  return (
-    <section id="testimonials" ref={ref} className="bg-[#fdfcfa] py-24 md:py-36">
-      <div className="max-w-7xl mx-auto px-6 md:px-10">
-        <div className="reveal flex items-center gap-4 mb-5">
-          <span className="font-serif text-[#ddd4c5] text-8xl md:text-9xl leading-none select-none">06</span>
-          <div>
-            <div className="w-8 h-px bg-[#1b3d2e] mb-2" />
-            <span className="text-[#1b3d2e] text-xs font-semibold tracking-[0.2em] uppercase">Client Stories</span>
-          </div>
-        </div>
-        <h2 className="reveal font-serif text-4xl md:text-5xl text-[#141414] leading-[1.1] mb-16">
-          Real Results.<br /><em className="text-[#1b3d2e]">Real Families.</em>
-        </h2>
+  const t = testimonials[current]
 
-        {/* Testimonials */}
-        <div className="space-y-0">
-          {testimonials.map((t, i) => (
-            <div
-              key={t.name}
-              className="reveal border-b border-[#ede7dc] last:border-0 grid md:grid-cols-[1fr_280px] gap-8 py-10"
+  return (
+    <section id="testimonials" ref={ref} className="bg-[#080808] py-24 md:py-36">
+      <div className="max-w-7xl mx-auto px-6 md:px-10">
+        <div className="rise flex items-center gap-3 mb-16">
+          <span className="text-[#ff4423] font-display font-700 text-xs tracking-[0.3em] uppercase">06 — Client Stories</span>
+          <div className="flex-1 h-px bg-[#2a2a2a]" />
+        </div>
+
+        {/* Large quote display */}
+        <div className="rise min-h-[320px] flex flex-col justify-between">
+          <div className="mb-10">
+            {/* Large open quote mark */}
+            <div className="font-display font-800 text-[#ff4423] text-8xl leading-none mb-4 select-none">"</div>
+            <p
+              className="font-display font-700 text-white leading-[1.2] tracking-tight transition-all duration-500"
+              style={{ fontSize: 'clamp(1.5rem, 3.5vw, 3rem)' }}
             >
-              <div>
-                <div className="text-[#95d5b2] text-lg mb-4">★★★★★</div>
-                <p className="font-serif text-xl md:text-2xl text-[#1e1e1e] leading-relaxed italic">
-                  "{t.quote}"
-                </p>
+              {t.quote}
+            </p>
+          </div>
+
+          <div className="flex items-center justify-between flex-wrap gap-6">
+            {/* Author */}
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 bg-[#ff4423] font-display font-700 text-white flex items-center justify-center text-sm">
+                {t.initials}
               </div>
-              <div className="flex md:flex-col md:items-end md:justify-center gap-4">
-                <div className="w-12 h-12 bg-[#1b3d2e] flex items-center justify-center text-white font-semibold text-sm flex-shrink-0">
-                  {t.initials}
-                </div>
-                <div className="md:text-right">
-                  <div className="text-[#1e1e1e] font-semibold text-sm">{t.name}</div>
-                  <div className="text-[#9c8b7a] text-sm">{t.detail}</div>
-                </div>
+              <div>
+                <div className="text-white font-display font-700">{t.name}</div>
+                <div className="text-[#444] text-xs tracking-wider uppercase mt-0.5">{t.detail}</div>
               </div>
             </div>
-          ))}
+
+            {/* Nav */}
+            <div className="flex items-center gap-3">
+              <button
+                onClick={() => setCurrent((c) => (c - 1 + testimonials.length) % testimonials.length)}
+                className="w-10 h-10 border border-[#2a2a2a] flex items-center justify-center text-[#555] hover:border-[#ff4423] hover:text-[#ff4423] transition-colors"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path d="M15 18l-6-6 6-6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </button>
+              <div className="flex gap-1">
+                {testimonials.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setCurrent(i)}
+                    className={`transition-all duration-300 ${i === current ? 'w-6 h-1 bg-[#ff4423]' : 'w-2 h-1 bg-[#333] hover:bg-[#555]'}`}
+                  />
+                ))}
+              </div>
+              <button
+                onClick={() => setCurrent((c) => (c + 1) % testimonials.length)}
+                className="w-10 h-10 border border-[#2a2a2a] flex items-center justify-center text-[#555] hover:border-[#ff4423] hover:text-[#ff4423] transition-colors"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path d="M9 18l6-6-6-6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </button>
+            </div>
+          </div>
         </div>
 
         {/* Review badges */}
-        <div className="reveal flex flex-wrap gap-6 mt-14 pt-10 border-t border-[#ede7dc]">
+        <div className="rise mt-16 pt-10 border-t border-[#2a2a2a] flex flex-wrap gap-4">
           {[
-            { score: '5.0', stars: '★★★★★', source: 'Google Reviews' },
-            { score: '4.9', stars: '★★★★★', source: 'Realtor.ca' },
-            { score: '100%', stars: '★★★★★', source: 'Recommendation Rate' },
+            { score: '5.0', src: 'Google Reviews' },
+            { score: '4.9', src: 'Realtor.ca' },
+            { score: '100%', src: 'Referral Rate' },
           ].map((b) => (
-            <div key={b.source} className="flex items-center gap-4 bg-[#f7f4ef] border border-[#ede7dc] px-6 py-4">
-              <span className="font-serif text-2xl text-[#1b3d2e]">{b.score}</span>
+            <div key={b.src} className="flex items-center gap-3 border border-[#2a2a2a] px-5 py-3">
+              <span className="font-display font-800 text-white text-xl">{b.score}</span>
               <div>
-                <div className="text-[#95d5b2] text-sm">{b.stars}</div>
-                <div className="text-[#9c8b7a] text-xs">{b.source}</div>
+                <div className="text-[#ff4423] text-xs">★★★★★</div>
+                <div className="text-[#444] text-xs tracking-wide">{b.src}</div>
               </div>
             </div>
           ))}

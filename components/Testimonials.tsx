@@ -30,11 +30,11 @@ export function Testimonials() {
   const t = testimonials[current]
 
   return (
-    <section id="testimonials" ref={ref} className="bg-[#080808] py-24 md:py-36">
+    <section id="testimonials" ref={ref} className="bg-white py-24 md:py-36">
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         <div className="rise flex items-center gap-3 mb-16">
           <span className="text-[#ff4423] font-display font-700 text-xs tracking-[0.3em] uppercase">06 — Client Stories</span>
-          <div className="flex-1 h-px bg-[#2a2a2a]" />
+          <div className="flex-1 h-px bg-[#e2ddd8]" />
         </div>
 
         {/* Large quote display */}
@@ -43,7 +43,7 @@ export function Testimonials() {
             {/* Large open quote mark */}
             <div className="font-display font-800 text-[#ff4423] text-8xl leading-none mb-4 select-none">"</div>
             <p
-              className="font-display font-700 text-white leading-[1.2] tracking-tight transition-all duration-500"
+              className="font-display font-700 text-[#0d0d0d] leading-[1.2] tracking-tight transition-all duration-500"
               style={{ fontSize: 'clamp(1.5rem, 3.5vw, 3rem)' }}
             >
               {t.quote}
@@ -57,8 +57,8 @@ export function Testimonials() {
                 {t.initials}
               </div>
               <div>
-                <div className="text-white font-display font-700">{t.name}</div>
-                <div className="text-[#444] text-xs tracking-wider uppercase mt-0.5">{t.detail}</div>
+                <div className="text-[#0d0d0d] font-display font-700">{t.name}</div>
+                <div className="text-[#999] text-xs tracking-wider uppercase mt-0.5">{t.detail}</div>
               </div>
             </div>
 
@@ -66,7 +66,7 @@ export function Testimonials() {
             <div className="flex items-center gap-3">
               <button
                 onClick={() => setCurrent((c) => (c - 1 + testimonials.length) % testimonials.length)}
-                className="w-10 h-10 border border-[#2a2a2a] flex items-center justify-center text-[#555] hover:border-[#ff4423] hover:text-[#ff4423] transition-colors"
+                className="w-10 h-10 border border-[#e2ddd8] flex items-center justify-center text-[#bbb] hover:border-[#ff4423] hover:text-[#ff4423] transition-colors"
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                   <path d="M15 18l-6-6 6-6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -77,13 +77,13 @@ export function Testimonials() {
                   <button
                     key={i}
                     onClick={() => setCurrent(i)}
-                    className={`transition-all duration-300 ${i === current ? 'w-6 h-1 bg-[#ff4423]' : 'w-2 h-1 bg-[#333] hover:bg-[#555]'}`}
+                    className={`transition-all duration-300 ${i === current ? 'w-6 h-1 bg-[#ff4423]' : 'w-2 h-1 bg-[#ddd8d2] hover:bg-[#bbb]'}`}
                   />
                 ))}
               </div>
               <button
                 onClick={() => setCurrent((c) => (c + 1) % testimonials.length)}
-                className="w-10 h-10 border border-[#2a2a2a] flex items-center justify-center text-[#555] hover:border-[#ff4423] hover:text-[#ff4423] transition-colors"
+                className="w-10 h-10 border border-[#e2ddd8] flex items-center justify-center text-[#bbb] hover:border-[#ff4423] hover:text-[#ff4423] transition-colors"
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                   <path d="M9 18l6-6-6-6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -94,17 +94,17 @@ export function Testimonials() {
         </div>
 
         {/* Review badges */}
-        <div className="rise mt-16 pt-10 border-t border-[#2a2a2a] flex flex-wrap gap-4">
+        <div className="rise mt-16 pt-10 border-t border-[#e2ddd8] flex flex-wrap gap-4">
           {[
             { score: '5.0', src: 'Google Reviews' },
             { score: '4.9', src: 'Realtor.ca' },
             { score: '100%', src: 'Referral Rate' },
           ].map((b) => (
-            <div key={b.src} className="flex items-center gap-3 border border-[#2a2a2a] px-5 py-3">
-              <span className="font-display font-800 text-white text-xl">{b.score}</span>
+            <div key={b.src} className="flex items-center gap-3 border border-[#e2ddd8] px-5 py-3">
+              <span className="font-display font-800 text-[#0d0d0d] text-xl">{b.score}</span>
               <div>
                 <div className="text-[#ff4423] text-xs">★★★★★</div>
-                <div className="text-[#444] text-xs tracking-wide">{b.src}</div>
+                <div className="text-[#999] text-xs tracking-wide">{b.src}</div>
               </div>
             </div>
           ))}

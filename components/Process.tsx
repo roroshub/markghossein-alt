@@ -13,16 +13,16 @@ export function Process() {
   const ref = useReveal<HTMLElement>()
 
   return (
-    <section id="process" ref={ref} className="bg-[#080808] py-24 md:py-36 overflow-hidden">
+    <section id="process" ref={ref} className="bg-white py-24 md:py-36 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         <div className="rise flex items-center gap-3 mb-16">
           <span className="text-[#ff4423] font-display font-700 text-xs tracking-[0.3em] uppercase">04 — Smooth Move System™</span>
-          <div className="flex-1 h-px bg-[#2a2a2a]" />
+          <div className="flex-1 h-px bg-[#e2ddd8]" />
         </div>
 
         {/* Header row */}
         <div className="rise grid md:grid-cols-[1fr_auto] gap-8 items-end mb-16">
-          <h2 className="font-display font-800 text-white leading-[1] tracking-tight"
+          <h2 className="font-display font-800 text-[#0d0d0d] leading-[1] tracking-tight"
             style={{ fontSize: 'clamp(2.5rem, 6vw, 6rem)' }}
           >
             The Five-Step<br /><span className="text-[#ff4423]">Framework.</span>
@@ -41,12 +41,12 @@ export function Process() {
             {steps.map((step, i) => (
               <div
                 key={step.num}
-                className="group relative flex-shrink-0 w-72 md:w-80 border border-[#2a2a2a] bg-[#111] p-8 hover:bg-[#ff4423] transition-colors duration-500 cursor-default"
+                className="group relative flex-shrink-0 w-72 md:w-80 border border-[#e2ddd8] bg-[#f5f2ed] p-8 hover:bg-[#ff4423] transition-colors duration-500 cursor-default"
                 style={{ minHeight: '280px' }}
               >
                 {/* Step number watermark */}
                 <div
-                  className="absolute right-4 bottom-4 font-display font-800 text-[#1a1a1a] group-hover:text-[#cc3519] leading-none pointer-events-none transition-colors"
+                  className="absolute right-4 bottom-4 font-display font-800 text-[#ece9e3] group-hover:text-[#cc3519] leading-none pointer-events-none transition-colors"
                   style={{ fontSize: '5rem' }}
                 >
                   {step.num}
@@ -58,15 +58,15 @@ export function Process() {
                     <div className="absolute -right-px top-8 w-px h-6 bg-[#ff4423]" />
                   )}
 
-                  <div className="w-8 h-8 border border-[#2a2a2a] group-hover:border-white/30 flex items-center justify-center mb-6 transition-colors">
+                  <div className="w-8 h-8 border border-[#e2ddd8] group-hover:border-white/30 flex items-center justify-center mb-6 transition-colors">
                     <span className="text-[#ff4423] group-hover:text-white font-display font-700 text-xs transition-colors">
                       {step.num}
                     </span>
                   </div>
-                  <h4 className="font-display font-700 text-white group-hover:text-white text-xl mb-3 transition-colors">
+                  <h4 className="font-display font-700 text-[#0d0d0d] group-hover:text-white text-xl mb-3 transition-colors">
                     {step.title}
                   </h4>
-                  <p className="text-[#555] group-hover:text-white/70 text-sm leading-relaxed transition-colors">
+                  <p className="text-[#888] group-hover:text-white/80 text-sm leading-relaxed transition-colors">
                     {step.desc}
                   </p>
                 </div>
@@ -74,9 +74,9 @@ export function Process() {
             ))}
 
             {/* End cap */}
-            <div className="flex-shrink-0 w-72 md:w-80 border border-[#2a2a2a] bg-[#0d0d0d] p-8 flex flex-col justify-end" style={{ minHeight: '280px' }}>
+            <div className="flex-shrink-0 w-72 md:w-80 border border-[#e2ddd8] bg-white p-8 flex flex-col justify-end" style={{ minHeight: '280px' }}>
               <p className="font-display font-800 text-[#ff4423] text-lg mb-3">Ready to start?</p>
-              <a href="#contact" className="text-[#444] text-sm hover:text-white transition-colors underline-hover">
+              <a href="#contact" className="text-[#999] text-sm hover:text-[#0d0d0d] transition-colors underline-hover">
                 Book your Clarity Session →
               </a>
             </div>

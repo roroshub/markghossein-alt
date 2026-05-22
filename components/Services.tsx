@@ -42,50 +42,50 @@ export function Services() {
   const [active, setActive] = useState<number | null>(0)
 
   return (
-    <section id="services" ref={ref} className="bg-[#080808] py-24 md:py-36">
+    <section id="services" ref={ref} className="bg-white py-24 md:py-36">
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         <div className="rise flex items-center gap-3 mb-16">
           <span className="text-[#ff4423] font-display font-700 text-xs tracking-[0.3em] uppercase">02 — Services</span>
-          <div className="flex-1 h-px bg-[#2a2a2a]" />
+          <div className="flex-1 h-px bg-[#e2ddd8]" />
         </div>
 
         <div className="rise flex items-end justify-between mb-12 gap-6">
-          <h2 className="font-display font-800 text-white leading-[1] tracking-tight"
+          <h2 className="font-display font-800 text-[#0d0d0d] leading-[1] tracking-tight"
             style={{ fontSize: 'clamp(2.5rem, 6vw, 6rem)' }}
           >
             What I<br /><span className="text-[#ff4423]">Offer.</span>
           </h2>
-          <p className="text-[#555] text-sm max-w-xs leading-relaxed hidden md:block">
+          <p className="text-[#999] text-sm max-w-xs leading-relaxed hidden md:block">
             Tap each service to explore what's included.
           </p>
         </div>
 
         {/* Accordion */}
-        <div className="border-t border-[#2a2a2a]">
+        <div className="border-t border-[#e2ddd8]">
           {services.map((s, i) => {
             const isOpen = active === i
             return (
-              <div key={s.num} className="rise border-b border-[#2a2a2a]">
+              <div key={s.num} className="rise border-b border-[#e2ddd8]">
                 <button
                   className="w-full text-left py-6 md:py-8 flex items-center justify-between gap-6 group"
                   onClick={() => setActive(isOpen ? null : i)}
                 >
                   <div className="flex items-center gap-5 md:gap-10 min-w-0">
-                    <span className="font-display font-700 text-[#333] text-sm tracking-widest w-8 flex-shrink-0">
+                    <span className="font-display font-700 text-[#ccc8c2] text-sm tracking-widest w-8 flex-shrink-0">
                       {s.num}
                     </span>
                     <div className="min-w-0">
-                      <span className={`font-display font-800 text-white leading-none block transition-colors duration-300 ${isOpen ? 'text-[#ff4423]' : 'group-hover:text-[#ff4423]'}`}
+                      <span className={`font-display font-800 text-[#0d0d0d] leading-none block transition-colors duration-300 ${isOpen ? 'text-[#ff4423]' : 'group-hover:text-[#ff4423]'}`}
                         style={{ fontSize: 'clamp(1.25rem, 3vw, 2.25rem)' }}
                       >
                         {s.title}
                       </span>
-                      <span className="text-[#444] text-xs tracking-wider uppercase mt-1 hidden md:block">{s.sub}</span>
+                      <span className="text-[#999] text-xs tracking-wider uppercase mt-1 hidden md:block">{s.sub}</span>
                     </div>
                   </div>
-                  <div className={`w-8 h-8 border flex-shrink-0 flex items-center justify-center transition-all duration-300 ${isOpen ? 'border-[#ff4423] bg-[#ff4423] rotate-45' : 'border-[#333] group-hover:border-[#ff4423]'}`}>
+                  <div className={`w-8 h-8 border flex-shrink-0 flex items-center justify-center transition-all duration-300 ${isOpen ? 'border-[#ff4423] bg-[#ff4423] rotate-45' : 'border-[#d8d4ce] group-hover:border-[#ff4423]'}`}>
                     <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                      <path d="M6 2v8M2 6h8" stroke={isOpen ? 'white' : '#888'} strokeWidth="1.5" strokeLinecap="round"/>
+                      <path d="M6 2v8M2 6h8" stroke={isOpen ? 'white' : '#aaa'} strokeWidth="1.5" strokeLinecap="round"/>
                     </svg>
                   </div>
                 </button>
@@ -98,7 +98,7 @@ export function Services() {
                         <p className="text-[#777] text-base leading-relaxed mb-6">{s.desc}</p>
                         <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                           {s.items.map((item) => (
-                            <li key={item} className="flex items-center gap-2 text-sm text-[#666]">
+                            <li key={item} className="flex items-center gap-2 text-sm text-[#888]">
                               <span className="w-1 h-1 bg-[#ff4423] rounded-full flex-shrink-0" />
                               {item}
                             </li>

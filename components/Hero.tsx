@@ -17,13 +17,13 @@ export function Hero() {
   }, [])
 
   return (
-    <section id="hero" ref={ref} className="relative min-h-screen bg-[#080808] flex flex-col overflow-hidden">
+    <section id="hero" ref={ref} className="relative min-h-screen bg-white flex flex-col overflow-hidden">
       {/* Background texture lines */}
       <div className="absolute inset-0 pointer-events-none">
         {[...Array(8)].map((_, i) => (
           <div
             key={i}
-            className="absolute top-0 bottom-0 w-px bg-white/[0.025]"
+            className="absolute top-0 bottom-0 w-px bg-black/[0.04]"
             style={{ left: `${(i + 1) * 12.5}%` }}
           />
         ))}
@@ -52,7 +52,7 @@ export function Hero() {
               <path d="M2 5h6M5 2l3 3-3 3" stroke="white" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </div>
-          <span className="text-[#666] text-xs tracking-[0.25em] uppercase font-display">
+          <span className="text-[#999] text-xs tracking-[0.25em] uppercase font-display">
             Ottawa's Real Estate Advisor · Century 21
           </span>
         </div>
@@ -61,7 +61,7 @@ export function Hero() {
         <div className="mb-10 md:mb-14 overflow-hidden">
           <h1
             data-in
-            className="font-display font-800 leading-[0.9] tracking-tight text-white"
+            className="font-display font-800 leading-[0.9] tracking-tight text-[#0d0d0d]"
             style={{
               fontSize: 'clamp(3.5rem, 10vw, 10rem)',
               opacity: 0,
@@ -78,10 +78,10 @@ export function Hero() {
         {/* Bottom row — description + CTA */}
         <div
           data-in
-          className="grid md:grid-cols-[1fr_auto] gap-8 md:gap-16 items-end border-t border-[#2a2a2a] pt-8"
+          className="grid md:grid-cols-[1fr_auto] gap-8 md:gap-16 items-end border-t border-[#e2ddd8] pt-8"
           style={{ opacity: 0, transform: 'translateY(30px)', transition: 'all 0.9s cubic-bezier(0.16,1,0.3,1)' }}
         >
-          <p className="text-[#666] text-base md:text-lg max-w-md leading-relaxed">
+          <p className="text-[#777] text-base md:text-lg max-w-md leading-relaxed">
             Whether you're buying, selling, or upsizing — I'm invested in helping Ottawa families build generational wealth through strategic, data-driven real estate.
           </p>
           <div className="flex flex-col sm:flex-row md:flex-col gap-3 flex-shrink-0">
@@ -96,7 +96,7 @@ export function Hero() {
             </a>
             <a
               href="#services"
-              className="inline-flex items-center justify-center gap-2 border border-[#333] text-[#888] font-display text-sm tracking-wide px-8 py-4 hover:border-white hover:text-white transition-colors duration-200 whitespace-nowrap"
+              className="inline-flex items-center justify-center gap-2 border border-[#d8d4ce] text-[#999] font-display text-sm tracking-wide px-8 py-4 hover:border-[#0d0d0d] hover:text-[#0d0d0d] transition-colors duration-200 whitespace-nowrap"
             >
               View Services
             </a>
@@ -104,7 +104,7 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Floating stats — bottom right corner badge */}
+      {/* Floating stats */}
       <div
         data-in
         className="absolute right-6 md:right-10 top-1/2 -translate-y-1/2 flex flex-col gap-px hidden lg:flex"
@@ -115,9 +115,9 @@ export function Hero() {
           { n: '$2B+', l: 'Transactions' },
           { n: '15+', l: 'Years' },
         ].map((s) => (
-          <div key={s.n} className="border border-[#2a2a2a] bg-[#111] px-5 py-4 text-right">
-            <div className="font-display font-800 text-2xl text-white">{s.n}</div>
-            <div className="text-[#555] text-xs tracking-wider uppercase mt-0.5">{s.l}</div>
+          <div key={s.n} className="border border-[#e2ddd8] bg-[#f5f2ed] px-5 py-4 text-right">
+            <div className="font-display font-800 text-2xl text-[#0d0d0d]">{s.n}</div>
+            <div className="text-[#999] text-xs tracking-wider uppercase mt-0.5">{s.l}</div>
           </div>
         ))}
       </div>

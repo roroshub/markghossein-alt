@@ -13,7 +13,8 @@ export function Process() {
   const ref = useReveal<HTMLElement>()
 
   return (
-    <section id="process" ref={ref} className="bg-white py-24 md:py-36 overflow-hidden">
+    <section id="process" ref={ref} className="bg-white py-24 md:py-36">
+      {/* Header — constrained */}
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         <div className="rise flex items-center gap-3 mb-16">
           <span className="text-[#1b4332] font-display font-700 text-xs tracking-[0.3em] uppercase">04 — Smooth Move System™</span>
@@ -33,48 +34,50 @@ export function Process() {
             </svg>
           </a>
         </div>
+      </div>
 
-        <div className="rise h-scroll -mx-6 md:-mx-10 px-6 md:px-10">
-          <div className="flex gap-px w-max min-w-full">
-            {steps.map((step, i) => (
+      {/* Scroll strip — full bleed, no container constraint */}
+      <div className="rise h-scroll px-6 md:px-10">
+        <div className="flex gap-px" style={{ width: 'max-content', minWidth: '100%' }}>
+          {steps.map((step, i) => (
+            <div
+              key={step.num}
+              className="group relative flex-shrink-0 w-72 md:w-80 border border-[#e2ddd8] bg-[#f5f2ed] p-8 hover:bg-[#1b4332] transition-colors duration-500 cursor-default"
+              style={{ minHeight: '280px' }}
+            >
               <div
-                key={step.num}
-                className="group relative flex-shrink-0 w-72 md:w-80 border border-[#e2ddd8] bg-[#f5f2ed] p-8 hover:bg-[#1b4332] transition-colors duration-500 cursor-default"
-                style={{ minHeight: '280px' }}
+                className="absolute right-4 bottom-4 font-display font-800 text-[#ece9e3] group-hover:text-[#14332a] leading-none pointer-events-none transition-colors select-none"
+                style={{ fontSize: '5rem' }}
               >
-                <div
-                  className="absolute right-4 bottom-4 font-display font-800 text-[#ece9e3] group-hover:text-[#14332a] leading-none pointer-events-none transition-colors"
-                  style={{ fontSize: '5rem' }}
-                >
-                  {step.num}
-                </div>
-
-                <div className="relative z-10">
-                  {i < steps.length - 1 && (
-                    <div className="absolute -right-px top-8 w-px h-6 bg-[#1b4332]" />
-                  )}
-
-                  <div className="w-8 h-8 border border-[#e2ddd8] group-hover:border-white/30 flex items-center justify-center mb-6 transition-colors">
-                    <span className="text-[#1b4332] group-hover:text-white font-display font-700 text-xs transition-colors">
-                      {step.num}
-                    </span>
-                  </div>
-                  <h4 className="font-display font-700 text-[#0d0d0d] group-hover:text-white leading-[1.1] text-xl mb-3 transition-colors">
-                    {step.title}
-                  </h4>
-                  <p className="text-[#888] group-hover:text-white/80 text-sm leading-relaxed transition-colors">
-                    {step.desc}
-                  </p>
-                </div>
+                {step.num}
               </div>
-            ))}
 
-            <div className="flex-shrink-0 w-72 md:w-80 border border-[#e2ddd8] bg-white p-8 flex flex-col justify-end" style={{ minHeight: '280px' }}>
-              <p className="font-display font-800 text-[#1b4332] text-lg mb-3">Ready to start?</p>
-              <a href="#contact" className="text-[#999] text-sm hover:text-[#0d0d0d] transition-colors underline-hover">
-                Book your Clarity Session →
-              </a>
+              <div className="relative z-10">
+                {i < steps.length - 1 && (
+                  <div className="absolute -right-px top-8 w-px h-6 bg-[#1b4332]" />
+                )}
+
+                <div className="w-8 h-8 border border-[#e2ddd8] group-hover:border-white/30 flex items-center justify-center mb-6 transition-colors">
+                  <span className="text-[#1b4332] group-hover:text-white font-display font-700 text-xs transition-colors">
+                    {step.num}
+                  </span>
+                </div>
+                <h4 className="font-display font-700 text-[#0d0d0d] group-hover:text-white leading-[1.1] text-xl mb-3 transition-colors">
+                  {step.title}
+                </h4>
+                <p className="text-[#888] group-hover:text-white/80 text-sm leading-relaxed transition-colors">
+                  {step.desc}
+                </p>
+              </div>
             </div>
+          ))}
+
+          {/* End cap */}
+          <div className="flex-shrink-0 w-72 md:w-80 border border-[#e2ddd8] bg-white p-8 flex flex-col justify-end" style={{ minHeight: '280px' }}>
+            <p className="font-display font-800 text-[#1b4332] leading-[1.1] text-lg mb-3">Ready to start?</p>
+            <a href="#contact" className="text-[#999] text-sm hover:text-[#0d0d0d] transition-colors underline-hover">
+              Book your Clarity Session →
+            </a>
           </div>
         </div>
       </div>

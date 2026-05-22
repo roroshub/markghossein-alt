@@ -1,11 +1,11 @@
 import type { Metadata } from 'next'
-import { Syne, Inter } from 'next/font/google'
+import { Space_Grotesk, Inter } from 'next/font/google'
 import './globals.css'
 
-const syne = Syne({
-  variable: '--font-syne',
+const spaceGrotesk = Space_Grotesk({
+  variable: '--font-space-grotesk',
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700', '800'],
+  weight: ['300', '400', '500', '600', '700'],
 })
 
 const inter = Inter({
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${syne.variable} ${inter.variable}`}>
+    <html lang="en" className={`${spaceGrotesk.variable} ${inter.variable}`}>
       <body>{children}</body>
     </html>
   )

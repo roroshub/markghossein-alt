@@ -33,15 +33,13 @@ export function Testimonials() {
     <section id="testimonials" ref={ref} className="bg-white py-24 md:py-36">
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         <div className="rise flex items-center gap-3 mb-16">
-          <span className="text-[#ff4423] font-display font-700 text-xs tracking-[0.3em] uppercase">06 — Client Stories</span>
+          <span className="text-[#1b4332] font-display font-700 text-xs tracking-[0.3em] uppercase">06 — Client Stories</span>
           <div className="flex-1 h-px bg-[#e2ddd8]" />
         </div>
 
-        {/* Large quote display */}
         <div className="rise min-h-[320px] flex flex-col justify-between">
           <div className="mb-10">
-            {/* Large open quote mark */}
-            <div className="font-display font-800 text-[#ff4423] text-8xl leading-none mb-4 select-none">"</div>
+            <div className="font-display font-800 text-[#1b4332] text-8xl leading-none mb-4 select-none">"</div>
             <p
               className="font-display font-700 text-[#0d0d0d] leading-[1.2] tracking-tight transition-all duration-500"
               style={{ fontSize: 'clamp(1.5rem, 3.5vw, 3rem)' }}
@@ -51,9 +49,8 @@ export function Testimonials() {
           </div>
 
           <div className="flex items-center justify-between flex-wrap gap-6">
-            {/* Author */}
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 bg-[#ff4423] font-display font-700 text-white flex items-center justify-center text-sm">
+              <div className="w-12 h-12 bg-[#1b4332] font-display font-700 text-white flex items-center justify-center text-sm">
                 {t.initials}
               </div>
               <div>
@@ -62,11 +59,10 @@ export function Testimonials() {
               </div>
             </div>
 
-            {/* Nav */}
             <div className="flex items-center gap-3">
               <button
                 onClick={() => setCurrent((c) => (c - 1 + testimonials.length) % testimonials.length)}
-                className="w-10 h-10 border border-[#e2ddd8] flex items-center justify-center text-[#bbb] hover:border-[#ff4423] hover:text-[#ff4423] transition-colors"
+                className="w-10 h-10 border border-[#e2ddd8] flex items-center justify-center text-[#bbb] hover:border-[#1b4332] hover:text-[#1b4332] transition-colors"
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                   <path d="M15 18l-6-6 6-6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -77,13 +73,13 @@ export function Testimonials() {
                   <button
                     key={i}
                     onClick={() => setCurrent(i)}
-                    className={`transition-all duration-300 ${i === current ? 'w-6 h-1 bg-[#ff4423]' : 'w-2 h-1 bg-[#ddd8d2] hover:bg-[#bbb]'}`}
+                    className={`transition-all duration-300 ${i === current ? 'w-6 h-1 bg-[#1b4332]' : 'w-2 h-1 bg-[#ddd8d2] hover:bg-[#bbb]'}`}
                   />
                 ))}
               </div>
               <button
                 onClick={() => setCurrent((c) => (c + 1) % testimonials.length)}
-                className="w-10 h-10 border border-[#e2ddd8] flex items-center justify-center text-[#bbb] hover:border-[#ff4423] hover:text-[#ff4423] transition-colors"
+                className="w-10 h-10 border border-[#e2ddd8] flex items-center justify-center text-[#bbb] hover:border-[#1b4332] hover:text-[#1b4332] transition-colors"
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                   <path d="M9 18l6-6-6-6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -93,7 +89,6 @@ export function Testimonials() {
           </div>
         </div>
 
-        {/* Review badges */}
         <div className="rise mt-16 pt-10 border-t border-[#e2ddd8] flex flex-wrap gap-4">
           {[
             { score: '5.0', src: 'Google Reviews' },
@@ -103,7 +98,7 @@ export function Testimonials() {
             <div key={b.src} className="flex items-center gap-3 border border-[#e2ddd8] px-5 py-3">
               <span className="font-display font-800 text-[#0d0d0d] text-xl">{b.score}</span>
               <div>
-                <div className="text-[#ff4423] text-xs">★★★★★</div>
+                <div className="text-[#1b4332] text-xs">★★★★★</div>
                 <div className="text-[#999] text-xs tracking-wide">{b.src}</div>
               </div>
             </div>

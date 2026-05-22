@@ -10,10 +10,8 @@
   --color-muted:   #9b9590;
   --color-subtle:  #888888;
   --color-border:  #e2ddd8;
-  --color-light:   #2a2727;
-  --color-white:   #0d0d0d;
-  --color-hot:     #ff4423;
-  --color-hot-dim: #cc3519;
+  --color-hot:     #1b4332;
+  --color-hot-dim: #14332a;
 }
 
 html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
@@ -31,15 +29,11 @@ body {
 
 /* Reveal animation */
 @keyframes rise {
-  from { opacity: 0; transform: translateY(40px); }
+  from { opacity: 0; transform: translateY(30px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 .rise { opacity: 1; transform: translateY(0); }
 .rise.in { animation: rise 0.7s cubic-bezier(0.16,1,0.3,1) both; }
-
-/* Diagonal clip */
-.clip-bottom { clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%); }
-.clip-top    { clip-path: polygon(0 5%, 100% 0, 100% 100%, 0 100%); }
 
 /* Horizontal scrolling timeline */
 .h-scroll { overflow-x: auto; scrollbar-width: none; }
@@ -63,6 +57,3 @@ body {
   transition: transform 0.35s cubic-bezier(0.16,1,0.3,1);
 }
 .underline-hover:hover::after { transform: scaleX(1); transform-origin: left; }
-
-/* Hot line */
-@keyframes draw { from { width: 0; } to { width: 100%; } }

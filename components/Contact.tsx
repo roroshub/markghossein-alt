@@ -21,23 +21,23 @@ export function Contact() {
     setSent(true)
   }
 
-  const field = 'w-full bg-white border border-[#e2ddd8] text-[#0d0d0d] placeholder-[#ccc] px-4 py-3.5 text-sm focus:outline-none focus:border-[#ff4423] transition-colors font-body'
+  const field = 'w-full bg-white border border-[#e2ddd8] text-[#0d0d0d] placeholder-[#ccc] px-4 py-3.5 text-sm focus:outline-none focus:border-[#1b4332] transition-colors font-body'
 
   return (
     <section id="contact" ref={ref} className="bg-[#f5f2ed] py-24 md:py-36">
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         <div className="rise flex items-center gap-3 mb-16">
-          <span className="text-[#ff4423] font-display font-700 text-xs tracking-[0.3em] uppercase">07 — Let's Talk</span>
+          <span className="text-[#1b4332] font-display font-700 text-xs tracking-[0.3em] uppercase">07 — Let's Talk</span>
           <div className="flex-1 h-px bg-[#e2ddd8]" />
         </div>
 
         <div className="grid lg:grid-cols-2 gap-16 xl:gap-24">
           {/* Left */}
           <div>
-            <h2 className="rise font-display font-800 text-[#0d0d0d] leading-[1] tracking-tight mb-8"
+            <h2 className="rise font-display font-800 text-[#0d0d0d] leading-[1.05] tracking-tight mb-8"
               style={{ fontSize: 'clamp(2.5rem, 6vw, 6rem)' }}
             >
-              Ready to<br /><span className="text-[#ff4423]">Move?</span>
+              Ready to<br /><span className="text-[#1b4332]">Move?</span>
             </h2>
             <p className="rise text-[#888] text-base leading-relaxed mb-10 max-w-sm">
               No pressure, no pitch. Just an honest conversation about your real estate goals — and a plan to get you there.
@@ -45,7 +45,7 @@ export function Contact() {
 
             <div className="rise space-y-4 mb-10">
               <a href="mailto:mark.ghossein@c21.ca" className="flex items-center gap-4 group">
-                <div className="w-10 h-10 border border-[#e2ddd8] flex items-center justify-center text-[#ccc] group-hover:border-[#ff4423] group-hover:text-[#ff4423] transition-colors flex-shrink-0">
+                <div className="w-10 h-10 border border-[#e2ddd8] flex items-center justify-center text-[#ccc] group-hover:border-[#1b4332] group-hover:text-[#1b4332] transition-colors flex-shrink-0">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
                     <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" strokeWidth="1.5"/>
                     <polyline points="22,6 12,13 2,6" stroke="currentColor" strokeWidth="1.5"/>
@@ -66,9 +66,8 @@ export function Contact() {
               </div>
             </div>
 
-            {/* Large tag — Century 21 */}
             <div className="rise border border-[#e2ddd8] inline-flex items-center gap-4 px-5 py-4 bg-white">
-              <div className="w-8 h-8 bg-[#ff4423] flex items-center justify-center font-display font-800 text-white text-xs">C21</div>
+              <div className="w-8 h-8 bg-[#1b4332] flex items-center justify-center font-display font-800 text-white text-xs">C21</div>
               <div>
                 <div className="text-[#0d0d0d] text-sm font-display font-600">Century 21 Certified</div>
                 <div className="text-[#999] text-xs">Ottawa, Ontario</div>
@@ -80,13 +79,12 @@ export function Contact() {
           <div className="rise">
             {sent ? (
               <div className="border border-[#e2ddd8] bg-white p-12 flex flex-col items-center justify-center text-center min-h-[400px]">
-                <div className="w-14 h-14 border border-[#ff4423] flex items-center justify-center text-[#ff4423] text-2xl font-display font-800 mb-6">✓</div>
-                <h3 className="font-display font-800 text-[#0d0d0d] text-2xl mb-3">Message Received.</h3>
+                <div className="w-14 h-14 border border-[#1b4332] flex items-center justify-center text-[#1b4332] text-2xl font-display font-800 mb-6">✓</div>
+                <h3 className="font-display font-800 text-[#0d0d0d] leading-[1.1] text-2xl mb-3">Message Received.</h3>
                 <p className="text-[#888] text-sm">Mark will be in touch within 24 hours.</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
-                {/* Interest picker */}
                 <div>
                   <label className="block text-[#999] text-xs tracking-[0.2em] uppercase mb-3 font-display font-600">
                     I'm interested in…
@@ -99,8 +97,8 @@ export function Contact() {
                         onClick={() => setInterest(item)}
                         className={`text-xs font-display font-600 tracking-wide py-2.5 px-3 border transition-colors duration-200 ${
                           interest === item
-                            ? 'border-[#ff4423] bg-[#ff4423] text-white'
-                            : 'border-[#e2ddd8] text-[#888] hover:border-[#ff4423] hover:text-[#0d0d0d]'
+                            ? 'border-[#1b4332] bg-[#1b4332] text-white'
+                            : 'border-[#e2ddd8] text-[#888] hover:border-[#1b4332] hover:text-[#0d0d0d]'
                         }`}
                       >
                         {item}
@@ -119,7 +117,7 @@ export function Contact() {
 
                 <button
                   type="submit"
-                  className="w-full bg-[#ff4423] text-white font-display font-700 text-sm tracking-wide py-4 hover:bg-[#cc3519] transition-colors duration-200 flex items-center justify-center gap-3"
+                  className="w-full bg-[#1b4332] text-white font-display font-700 text-sm tracking-wide py-4 hover:bg-[#14332a] transition-colors duration-200 flex items-center justify-center gap-3"
                 >
                   Send Message
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none">

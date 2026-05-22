@@ -11,13 +11,13 @@ export function Hero() {
     items.forEach((item, i) => {
       setTimeout(() => {
         item.style.opacity = '1'
-        item.style.transform = 'translateY(0) rotate(0deg)'
+        item.style.transform = 'translateY(0)'
       }, 300 + i * 140)
     })
   }, [])
 
   return (
-    <section id="hero" ref={ref} className="relative min-h-screen bg-white flex flex-col overflow-hidden">
+    <section id="hero" ref={ref} className="relative min-h-screen bg-[#faf8f5] flex flex-col overflow-hidden">
       {/* Background texture lines */}
       <div className="absolute inset-0 pointer-events-none">
         {[...Array(8)].map((_, i) => (
@@ -29,10 +29,10 @@ export function Hero() {
         ))}
       </div>
 
-      {/* Red accent bar — top */}
+      {/* Green accent bar — top */}
       <div
         data-in
-        className="absolute top-0 left-0 h-0.5 bg-[#ff4423]"
+        className="absolute top-0 left-0 h-0.5 bg-[#1b4332]"
         style={{
           width: '40%',
           opacity: 0,
@@ -47,7 +47,7 @@ export function Hero() {
           className="flex items-center gap-4 mb-6 md:mb-8"
           style={{ opacity: 0, transform: 'translateY(30px)', transition: 'all 0.8s cubic-bezier(0.16,1,0.3,1)' }}
         >
-          <div className="w-6 h-6 bg-[#ff4423] flex items-center justify-center">
+          <div className="w-6 h-6 bg-[#1b4332] flex items-center justify-center">
             <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
               <path d="M2 5h6M5 2l3 3-3 3" stroke="white" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
@@ -57,20 +57,20 @@ export function Hero() {
           </span>
         </div>
 
-        {/* HUGE headline */}
-        <div className="mb-10 md:mb-14 overflow-hidden">
+        {/* HUGE headline — no overflow-hidden so descenders aren't clipped */}
+        <div className="mb-10 md:mb-14">
           <h1
             data-in
-            className="font-display font-800 leading-[0.9] tracking-tight text-[#0d0d0d]"
+            className="font-display font-800 leading-[1.05] tracking-tight text-[#0d0d0d]"
             style={{
               fontSize: 'clamp(3.5rem, 10vw, 10rem)',
               opacity: 0,
-              transform: 'translateY(80px)',
+              transform: 'translateY(60px)',
               transition: 'all 1s cubic-bezier(0.16,1,0.3,1)',
             }}
           >
             Make the<br />
-            <span className="text-[#ff4423]">Right</span><br />
+            <span className="text-[#1b4332]">Right</span><br />
             Move.
           </h1>
         </div>
@@ -87,7 +87,7 @@ export function Hero() {
           <div className="flex flex-col sm:flex-row md:flex-col gap-3 flex-shrink-0">
             <a
               href="#contact"
-              className="inline-flex items-center justify-center gap-3 bg-[#ff4423] text-white font-display font-700 text-sm tracking-wide px-8 py-4 hover:bg-[#cc3519] transition-colors duration-200 whitespace-nowrap"
+              className="inline-flex items-center justify-center gap-3 bg-[#1b4332] text-white font-display font-700 text-sm tracking-wide px-8 py-4 hover:bg-[#14332a] transition-colors duration-200 whitespace-nowrap"
             >
               Book a Call
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
@@ -107,7 +107,7 @@ export function Hero() {
       {/* Floating stats */}
       <div
         data-in
-        className="absolute right-6 md:right-10 top-1/2 -translate-y-1/2 flex flex-col gap-px hidden lg:flex"
+        className="absolute right-6 md:right-10 top-1/2 -translate-y-1/2 flex-col gap-px hidden lg:flex"
         style={{ opacity: 0, transform: 'translateY(30px)', transition: 'all 1s cubic-bezier(0.16,1,0.3,1)' }}
       >
         {[
@@ -115,7 +115,7 @@ export function Hero() {
           { n: '$2B+', l: 'Transactions' },
           { n: '15+', l: 'Years' },
         ].map((s) => (
-          <div key={s.n} className="border border-[#e2ddd8] bg-[#f5f2ed] px-5 py-4 text-right">
+          <div key={s.n} className="border border-[#e2ddd8] bg-white px-5 py-4 text-right">
             <div className="font-display font-800 text-2xl text-[#0d0d0d]">{s.n}</div>
             <div className="text-[#999] text-xs tracking-wider uppercase mt-0.5">{s.l}</div>
           </div>
@@ -124,7 +124,7 @@ export function Hero() {
 
       {/* Scroll line */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
-        <div className="w-px h-10 bg-gradient-to-b from-transparent to-[#ff4423] animate-pulse" />
+        <div className="w-px h-10 bg-gradient-to-b from-transparent to-[#1b4332] animate-pulse" />
       </div>
     </section>
   )

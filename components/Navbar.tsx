@@ -24,7 +24,7 @@ export function Navbar() {
       {/* Minimal top bar */}
       <nav className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-10 h-14 transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur border-b border-[#e2ddd8]' : ''}`}>
         <a href="#hero" className="font-display font-800 text-sm tracking-[0.15em] uppercase text-[#0d0d0d]">
-          MG<span className="text-[#ff4423]">.</span>
+          MG<span className="text-[#1b4332]">.</span>
         </a>
         <button
           aria-label="Menu"
@@ -41,14 +41,14 @@ export function Navbar() {
 
       {/* Full-screen overlay menu */}
       <div
-        className={`fixed inset-0 z-[60] bg-white flex flex-col transition-all duration-700 ${
+        className={`fixed inset-0 z-[60] bg-[#faf8f5] flex flex-col transition-all duration-700 ${
           open ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
       >
         {/* Close */}
         <div className="flex items-center justify-between px-6 md:px-10 h-14 border-b border-[#e2ddd8]">
           <a href="#hero" onClick={() => setOpen(false)} className="font-display font-800 text-sm tracking-[0.15em] uppercase text-[#0d0d0d]">
-            MG<span className="text-[#ff4423]">.</span>
+            MG<span className="text-[#1b4332]">.</span>
           </a>
           <button
             onClick={() => setOpen(false)}
@@ -68,14 +68,14 @@ export function Navbar() {
               key={item.href}
               href={item.href}
               onClick={() => setOpen(false)}
-              className="group flex items-center justify-between border-b border-[#ede9e3] py-6 md:py-8 overflow-hidden"
+              className="group flex items-center justify-between border-b border-[#ede9e3] py-6 md:py-8"
               style={{ transitionDelay: `${i * 60}ms` }}
             >
-              <span className="font-display font-800 text-4xl md:text-6xl lg:text-7xl text-[#0d0d0d] group-hover:text-[#ff4423] transition-colors duration-300 leading-none">
+              <span className="font-display font-800 leading-[1.1] text-4xl md:text-6xl lg:text-7xl text-[#0d0d0d] group-hover:text-[#1b4332] transition-colors duration-300">
                 {item.label}
               </span>
               <svg
-                className="text-[#ccc8c2] group-hover:text-[#ff4423] transition-colors duration-300"
+                className="text-[#ccc8c2] group-hover:text-[#1b4332] transition-colors duration-300"
                 width="32" height="32" viewBox="0 0 24 24" fill="none"
               >
                 <path d="M7 17L17 7M17 7H7M17 7v10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>

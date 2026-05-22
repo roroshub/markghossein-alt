@@ -45,22 +45,21 @@ export function Services() {
     <section id="services" ref={ref} className="bg-white py-24 md:py-36">
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         <div className="rise flex items-center gap-3 mb-16">
-          <span className="text-[#ff4423] font-display font-700 text-xs tracking-[0.3em] uppercase">02 — Services</span>
+          <span className="text-[#1b4332] font-display font-700 text-xs tracking-[0.3em] uppercase">02 — Services</span>
           <div className="flex-1 h-px bg-[#e2ddd8]" />
         </div>
 
         <div className="rise flex items-end justify-between mb-12 gap-6">
-          <h2 className="font-display font-800 text-[#0d0d0d] leading-[1] tracking-tight"
+          <h2 className="font-display font-800 text-[#0d0d0d] leading-[1.05] tracking-tight"
             style={{ fontSize: 'clamp(2.5rem, 6vw, 6rem)' }}
           >
-            What I<br /><span className="text-[#ff4423]">Offer.</span>
+            What I<br /><span className="text-[#1b4332]">Offer.</span>
           </h2>
           <p className="text-[#999] text-sm max-w-xs leading-relaxed hidden md:block">
             Tap each service to explore what's included.
           </p>
         </div>
 
-        {/* Accordion */}
         <div className="border-t border-[#e2ddd8]">
           {services.map((s, i) => {
             const isOpen = active === i
@@ -75,7 +74,7 @@ export function Services() {
                       {s.num}
                     </span>
                     <div className="min-w-0">
-                      <span className={`font-display font-800 text-[#0d0d0d] leading-none block transition-colors duration-300 ${isOpen ? 'text-[#ff4423]' : 'group-hover:text-[#ff4423]'}`}
+                      <span className={`font-display font-800 text-[#0d0d0d] leading-[1.1] block transition-colors duration-300 ${isOpen ? 'text-[#1b4332]' : 'group-hover:text-[#1b4332]'}`}
                         style={{ fontSize: 'clamp(1.25rem, 3vw, 2.25rem)' }}
                       >
                         {s.title}
@@ -83,14 +82,13 @@ export function Services() {
                       <span className="text-[#999] text-xs tracking-wider uppercase mt-1 hidden md:block">{s.sub}</span>
                     </div>
                   </div>
-                  <div className={`w-8 h-8 border flex-shrink-0 flex items-center justify-center transition-all duration-300 ${isOpen ? 'border-[#ff4423] bg-[#ff4423] rotate-45' : 'border-[#d8d4ce] group-hover:border-[#ff4423]'}`}>
+                  <div className={`w-8 h-8 border flex-shrink-0 flex items-center justify-center transition-all duration-300 ${isOpen ? 'border-[#1b4332] bg-[#1b4332] rotate-45' : 'border-[#d8d4ce] group-hover:border-[#1b4332]'}`}>
                     <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
                       <path d="M6 2v8M2 6h8" stroke={isOpen ? 'white' : '#aaa'} strokeWidth="1.5" strokeLinecap="round"/>
                     </svg>
                   </div>
                 </button>
 
-                {/* Expandable body */}
                 <div className={`accordion-body ${isOpen ? 'open' : ''}`}>
                   <div className="accordion-inner">
                     <div className="pl-0 md:pl-[calc(2rem+40px)] pb-8 grid md:grid-cols-[2fr_1fr] gap-8">
@@ -99,7 +97,7 @@ export function Services() {
                         <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                           {s.items.map((item) => (
                             <li key={item} className="flex items-center gap-2 text-sm text-[#888]">
-                              <span className="w-1 h-1 bg-[#ff4423] rounded-full flex-shrink-0" />
+                              <span className="w-1 h-1 bg-[#1b4332] rounded-full flex-shrink-0" />
                               {item}
                             </li>
                           ))}
@@ -108,7 +106,7 @@ export function Services() {
                       <div className="flex md:justify-end items-start">
                         <a
                           href={s.cta}
-                          className="inline-flex items-center gap-2 border border-[#ff4423] text-[#ff4423] font-display font-700 text-sm tracking-wide px-6 py-3 hover:bg-[#ff4423] hover:text-white transition-colors duration-200"
+                          className="inline-flex items-center gap-2 border border-[#1b4332] text-[#1b4332] font-display font-700 text-sm tracking-wide px-6 py-3 hover:bg-[#1b4332] hover:text-white transition-colors duration-200"
                         >
                           Get Started
                           <svg width="14" height="14" viewBox="0 0 24 24" fill="none">

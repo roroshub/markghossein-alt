@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  --font-display: var(--font-space-grotesk), system-ui, sans-serif;
+  --font-display: var(--font-raleway), system-ui, sans-serif;
   --font-body:    var(--font-inter), system-ui, sans-serif;
 
   --color-void:    #ffffff;
@@ -27,13 +27,11 @@ body {
 @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 .marquee-run { animation: marquee 32s linear infinite; }
 
-/* Reveal animation */
-@keyframes rise {
-  from { opacity: 0; transform: translateY(30px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-.rise { opacity: 1; transform: translateY(0); }
-.rise.in { animation: rise 0.7s cubic-bezier(0.16,1,0.3,1) both; }
+/* Reveal animation — transitions only, no fill-mode twitching */
+.rise     { opacity: 0; transform: translateY(20px); }
+.rise.in  { opacity: 1; transform: translateY(0);
+            transition: opacity 0.65s cubic-bezier(0.16,1,0.3,1),
+                        transform 0.65s cubic-bezier(0.16,1,0.3,1); }
 
 /* Horizontal scrolling timeline */
 .h-scroll { overflow-x: auto; scrollbar-width: none; }

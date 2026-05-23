@@ -86,7 +86,7 @@ export function Navbar() {
 
         {/* Footer strip */}
         <div className="px-6 md:px-16 pb-8 flex items-center gap-6 text-[#bbb] text-xs tracking-wider uppercase">
-          <span>Century 21</span>
+          <span>eXp Realty</span>
           <span className="w-4 h-px bg-[#d8d4ce]" />
           <span>Ottawa, Ontario</span>
           <span className="w-4 h-px bg-[#d8d4ce]" />

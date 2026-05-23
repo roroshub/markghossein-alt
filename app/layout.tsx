@@ -18,7 +18,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://markghossein-alt.ve
 
 export const metadata: Metadata = {
   title: 'Mark Ghossein | Real Estate Advisors — Ottawa',
-  description: "Ottawa's most strategic real estate advisor. Buying, selling, upsizing — Century 21.",
+  description: "Ottawa's most strategic real estate advisor. Buying, selling, upsizing — eXp Realty.",
   metadataBase: new URL(siteUrl),
   alternates: { canonical: siteUrl },
   openGraph: {

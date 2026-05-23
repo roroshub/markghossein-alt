@@ -21,9 +21,9 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'RealEstateAgent',
   name: 'Mark Ghossein Real Estate Advisors',
-  description: 'Ottawa real estate advisor specialising in buyer representation, seller strategy, and upsizing. Century 21 agent serving Ottawa, Kanata, Barrhaven, Westboro, Orleans and all of Ontario.',
+  description: 'Ottawa real estate advisor specialising in buyer representation, seller strategy, and upsizing. eXp Realty agent serving Ottawa, Kanata, Barrhaven, Westboro, Orleans and surrounding areas.',
   url: siteUrl,
-  email: 'mark.ghossein@c21.ca',
+  email: 'mark.ghossein@exprealty.com',
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Ottawa',
@@ -39,8 +39,8 @@ const jsonLd = {
   ],
   memberOf: {
     '@type': 'Organization',
-    name: 'Century 21 Canada',
-    url: 'https://www.century21.ca',
+    name: 'eXp Realty Canada',
+    url: 'https://www.exprealty.com',
   },
 }
 

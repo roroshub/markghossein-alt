@@ -60,7 +60,7 @@ export function Hero() {
               </svg>
             </div>
             <span className="text-[#999] text-xs tracking-[0.25em] uppercase font-display">
-              Ottawa's Real Estate Advisor · Century 21
+              Ottawa's Real Estate Advisor · eXp Realty
             </span>
           </div>
 
@@ -172,10 +172,10 @@ export function Hero() {
           style={{ opacity: 0, transform: 'translateY(20px)', transition: 'all 0.7s cubic-bezier(0.16,1,0.3,1)' }}
         >
           <div className="w-8 h-8 border border-white/20 flex items-center justify-center font-display font-700 text-white/50 text-xs">
-            C21
+            eXp
           </div>
           <div>
-            <div className="text-white/60 text-xs font-display font-600 tracking-wide">Century 21 Certified</div>
+            <div className="text-white/60 text-xs font-display font-600 tracking-wide">eXp Realty</div>
             <div className="text-white/30 text-xs tracking-wider">Ottawa, Ontario</div>
           </div>
         </div>

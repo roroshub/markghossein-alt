@@ -48,7 +48,7 @@ export function About() {
                 </div>
                 <div>
                   <div className="font-display font-700 text-[#0d0d0d]">Mark Ghossein</div>
-                  <div className="text-[#999] text-xs tracking-wider uppercase mt-0.5">Century 21 · Ottawa, ON</div>
+                  <div className="text-[#999] text-xs tracking-wider uppercase mt-0.5">eXp Realty · Ottawa, ON</div>
                 </div>
               </div>
               <div className="flex gap-2 flex-wrap">

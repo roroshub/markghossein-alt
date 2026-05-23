@@ -11,8 +11,8 @@ const listings = [
     tag: 'Active',
   },
   {
-    address: '18 Lakeshore Blvd W',
-    area: 'Kanata, Ontario',
+    address: '22 Clemow Avenue',
+    area: 'The Glebe, Ottawa',
     price: '$2,195,000',
     beds: 5, baths: 4, sqft: '3,600',
     status: 'New Listing',

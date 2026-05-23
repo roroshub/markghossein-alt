@@ -6,19 +6,19 @@ const testimonials = [
   {
     quote: "Mark didn't just find us a house — he built us a strategy. We sold $80K over asking and found our dream home within the same month. The Smooth Move System is no joke.",
     name: 'Sarah & Raj K.',
-    detail: 'Upsized · Ottawa to Oakville',
+    detail: 'Upsized · Barrhaven to Westboro',
     initials: 'SR',
   },
   {
     quote: "As first-time buyers, we were terrified. Mark walked us through everything, never made us feel rushed, and negotiated $45,000 off the asking price. He's the real deal.",
     name: 'James & Lauren T.',
-    detail: 'First-time buyers · Mississauga',
+    detail: 'First-time buyers · Kanata, Ottawa',
     initials: 'JL',
   },
   {
     quote: "I've worked with three agents over the years. Mark is in a completely different league. His market knowledge and no-nonsense approach got my condo sold in 4 days.",
     name: 'David M.',
-    detail: 'Sold · Burlington',
+    detail: 'Sold · Westboro, Ottawa',
     initials: 'DM',
   },
 ]

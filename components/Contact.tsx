@@ -67,9 +67,9 @@ export function Contact() {
             </div>
 
             <div className="rise border border-[#e2ddd8] inline-flex items-center gap-4 px-5 py-4 bg-white">
-              <div className="w-8 h-8 bg-[#1b4332] flex items-center justify-center font-display font-800 text-white text-xs">C21</div>
+              <div className="w-8 h-8 bg-[#1b4332] flex items-center justify-center font-display font-800 text-white text-xs">eXp</div>
               <div>
-                <div className="text-[#0d0d0d] text-sm font-display font-600">Century 21 Certified</div>
+                <div className="text-[#0d0d0d] text-sm font-display font-600">eXp Realty</div>
                 <div className="text-[#999] text-xs">Ottawa, Ontario</div>
               </div>
             </div>

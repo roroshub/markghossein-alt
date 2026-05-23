@@ -59,7 +59,7 @@ export function Footer() {
               <p className="text-[#888] text-sm">Ottawa, Ontario<br />Canada</p>
               <div className="border border-[#e2ddd8] inline-flex items-center gap-2 px-3 py-2 mt-2 bg-white">
                 <span className="w-2 h-2 bg-[#1b4332] rounded-full" />
-                <span className="text-[#888] text-xs">Century 21</span>
+                <span className="text-[#888] text-xs">eXp Realty</span>
               </div>
             </div>
           </div>
